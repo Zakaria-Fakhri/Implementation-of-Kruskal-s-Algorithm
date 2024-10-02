@@ -1,0 +1,21 @@
+FUNCTION Kruskal(vertices_list, edges_list):
+    // Step 1: Initialize an empty list for the minimum spanning tree 
+    minimal_span_tree ← []
+
+    // Step 2: Sort the edges based on their weights
+    MERGE_SORT(edges_list)
+
+    // Step 3: Create a union-find data structure for disjoint set operations
+    u_f ← UNION_FIND(vertices_list)
+
+    // Step 4: Iterate through each edge in the sorted list
+    FOR EACH edge (u, v, weight) IN edges_list:
+        // Step 5: Check if the vertices u and v are in different sets
+        IF u_f.FIND(u) ≠ u_f.FIND(v) THEN:
+            // Step 6: If they are in different sets, add the edge (u, v) to the MST
+            minimal_span_tree.APPEND((u, v, weight))
+            // Step 7: Union the sets of u and v
+            u_f.UNION(u, v)
+
+    // Step 8: Return the list containing the edges of the minimum spanning tree
+    RETURN minimal_span_tree
