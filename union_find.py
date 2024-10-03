@@ -19,7 +19,10 @@ class union_find:
         Initialize the Union-Find structure.
         Each element starts in its own set, so the parent of each element is itself.
         """
-        self.parent = {v: v for v in V}  # Each node starts off as its own parent
+        self.parent = {}
+        for v in V:#Each node starts off as its own parent
+            self.parent[v]=v
+            
 
     def find(self, v):
         """
