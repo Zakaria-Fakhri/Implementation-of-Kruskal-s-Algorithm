@@ -19,4 +19,3 @@ FUNCTION Kruskal(vertices, edges):
 
     # Return the final list of edges in the minimum spanning tree
     RETURN mst
-    RETURN minimal_span_tree
